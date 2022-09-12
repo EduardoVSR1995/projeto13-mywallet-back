@@ -1,4 +1,3 @@
-import { validExtract } from '../middlewares/autorization.middleware.js';
 import { finder } from '../suports/functions.js'
 import { ObjectId } from 'mongodb';
 import dbs from '../db/db.js';
@@ -6,14 +5,12 @@ import dbs from '../db/db.js';
 let db = await dbs();
 
 export async function getMyExtract(req, res) {
-   if(validExtract(req,res)) return res.sendStatus(400);
    try {
       const token = req.headers.authorization.replace('Bearer ', '')
 
       const dice = await finder('MyPage', { token: token })
 
       const t = dice.id.toString();
-
 
       const list = await db.collection('MyExtracts').find({ id: ObjectId(t) }).toArray();
 
@@ -25,7 +22,6 @@ export async function getMyExtract(req, res) {
 }
 
 export async function getExtract(req, res) {
-   if(validExtract(req,res)) return res.sendStatus(400);
    
    try {
 

@@ -8,9 +8,7 @@ router.post('/Extract' ,postExtract )
 
 router.post('/sign-in', postSignin )
 
-router.use(validCreate);
-
-router.post('/creatCont', postCreatCont )
+router.post('/creatCont', validCreate, postCreatCont )
 
 
 export default router;

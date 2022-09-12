@@ -1,4 +1,4 @@
-import {validSignin, validExtract} from '../middlewares/autorization.middleware.js'
+import {validSignin} from '../middlewares/autorization.middleware.js'
 import {finder , addIten} from '../suports/functions.js' 
 import { v4 as uuid } from 'uuid';
 import bcrypt from 'bcrypt';
@@ -60,8 +60,6 @@ export async function postSignin(req, res){
 }
 
 export async function postExtract(req, res){
-    if(validExtract(req,res)) return res.sendStatus(400);
-
     const token = req.headers.authorization.replace('Bearer ', "");
 
     try {
