@@ -13,7 +13,7 @@ export async function patchExtract(req, res){
         const i = await db.collection('MyExtracts').find({}).toArray()
         console.log(i,dice)
     
-        await db.collection('MyExtracts').updatOne({id: dice.id }, {$set: {price: req.body.price , description: req.body.description , date: req.body.date }}) ;
+        await db.collection('MyExtracts').updateOne({id: dice.id }, {$set: {price: req.body.price , description: req.body.description , date: req.body.date }}) ;
         
         return res.sendStatus(200)
 
