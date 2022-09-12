@@ -13,17 +13,22 @@ const paramSchema1 =  joi.object({
     password:joi.string().min(4).required(),
 })
 
+const paramSchema2 =  joi.object({
+    authorization:joi.string().required(),
+})
+
+
 function aux(req, res, next, opt ){
     const obj = req.body;
     let validate;
+    
     if(opt===0) {   
         validate= paramSchema.validate(obj)
-    if(validate.error){
-        const err = validate.error.details.map((value) => value.message);
-        console.log(err)
-        res.locals.authorization=err;
-        next()
-        return;
+        if(validate.error){
+            const err = validate.error.details.map((value) => value.message);
+            res.locals.authorization=err;
+            next()
+            return;
     }
         next()
     }
@@ -32,12 +37,23 @@ function aux(req, res, next, opt ){
         validate = paramSchema1.validate(obj)
         
         if(validate.error){
-            const err = validate.error.details.map((value) => value.message);
-            return false;
+            return true;
         }
-           return true;
+           return false;
 
     }
+    if(opt===2) {   
+        const obj1 = req.headers
+        validate = paramSchema1.validate(obj)
+
+        if(validate.error){
+            return true;
+        }
+           return false;
+
+    }
+    
+
 
 }
 
@@ -46,5 +62,9 @@ export function validCreate(req, res, next){
 }
 
 export function validSignin(req, res){
-    return aux(req, res, 1);
+    return aux(req, res, 0 , 1);
+}
+
+export function validExtract(req, res){
+    return aux(req, res, 0 , 2);
 }

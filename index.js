@@ -1,5 +1,5 @@
-import postrouts from '../routers/post.routers.js'
-import getrouts from '../routers/get.routers.js'
+import postrouts from './routers/post.routers.js'
+import getrouts from './routers/get.routers.js'
 import express from 'express';
 import cors from 'cors';
 
