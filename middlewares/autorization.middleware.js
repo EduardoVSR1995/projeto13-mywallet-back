@@ -43,8 +43,9 @@ function aux(req, res, next, opt ){
 
     }
     if(opt===2) {   
-        const obj1 = req.headers
-        validate = paramSchema1.validate(obj)
+        const obj1 = {authorization: req.headers.authorization};
+
+        validate = paramSchema2.validate(obj1)
 
         if(validate.error){
             return true;
