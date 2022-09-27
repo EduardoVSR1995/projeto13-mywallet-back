@@ -9,9 +9,8 @@ export default async function mongodb(){
 
     let db;
 
-    
     try {
-        db = await mongoClient.db('MyWallet');
+        db = await mongoClient.db('');
         return db;
     } catch (error) {
         return error;        

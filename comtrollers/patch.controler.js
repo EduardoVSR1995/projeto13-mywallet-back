@@ -1,5 +1,4 @@
 import { finder } from '../suports/functions.js';
-import { ObjectId } from 'mongodb';
 import dbs from '../db/db.js'
 
 let db = await dbs();
