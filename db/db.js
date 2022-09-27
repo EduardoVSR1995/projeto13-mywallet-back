@@ -1,4 +1,4 @@
-import {MongoClient} from 'mongodb';
+import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -10,7 +10,7 @@ export default async function mongodb(){
     let db;
 
     try {
-        db = await mongoClient.db('');
+        db = await mongoClient.db('MyWallet');
         return db;
     } catch (error) {
         return error;        
