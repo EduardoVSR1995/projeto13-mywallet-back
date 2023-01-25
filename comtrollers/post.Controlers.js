@@ -13,6 +13,7 @@ export async function postCreatCont (req, res){
     try {
         const confirm = await finder('users', {email: req.body.email});
 
+        console.log(confirm)
         if(confirm) {
             return res.sendStatus(409);;
         }
