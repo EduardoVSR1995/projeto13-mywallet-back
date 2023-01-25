@@ -8,7 +8,6 @@ export async function postCreatCont (req, res){
     const crypt = bcrypt.hashSync(req.body.password,10);
 
     if(authorization) {
-        console.log(res.locals);
         return res.sendStatus(422);
     }
     try {

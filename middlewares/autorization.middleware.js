@@ -57,6 +57,5 @@ export function validSignin(req, res , next){
 }
 
 export function validExtract(req, res, next){
-    console.log(req.headers.authorization)
     return aux(req, res, next , 2);
 }

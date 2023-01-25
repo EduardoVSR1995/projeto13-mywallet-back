@@ -1,3 +1,4 @@
+import{ ObjectId } from 'mongodb'
 import { finder } from '../suports/functions.js';
 import dbs from '../db/db.js'
 
@@ -5,15 +6,13 @@ let db = await dbs();
 
 export async function patchExtract(req, res){
     const token = req.headers.authorization.replace('Bearer ', "");
+    const {id, price, description, date} = req.body;    
     
     try {
-
         const dice = await finder('MyPage',{token: token});
-        const i = await db.collection('MyExtracts').find({}).toArray()
-        console.log(i,dice)
-    
-        await db.collection('MyExtracts').updateOne({id: dice.id }, {$set: {price: req.body.price , description: req.body.description , date: req.body.date }}) ;
-        
+     
+        await db.collection('MyExtracts').updateOne({_id: new ObjectId(id) }, {$set: {price: price , description: description , date: date }}) ;
+         
         return res.sendStatus(200)
 
     } catch (error) {
