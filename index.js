@@ -5,6 +5,7 @@ import getrouts from './routers/get.routers.js';
 import express from 'express';
 import cors from 'cors';
 
+
 const server = express();
 
 server.use(cors());
@@ -18,4 +19,4 @@ server.use(postrouts)
 
 server.use(getrouts)
 
-server.listen(5000);
+server.listen(process.env.PORT ? process.env.PORT : 5000);

@@ -29,9 +29,8 @@ export async function getExtract(req, res) {
 
       const dice = await finder('MyPage', { token: token })
 
-      console.log(dice)
-
       const user = await finder('users', { _id: dice.id })
+      
 
       return res.send({ name: user.name, movements: user.movements }).status(200)
 

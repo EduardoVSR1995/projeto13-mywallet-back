@@ -1,4 +1,4 @@
-import  {postCreatCont, postSignin, postExtract }  from "../comtrollers/push.Controlers.js";
+import  {postCreatCont, postSignin, postExtract }  from "../comtrollers/post.Controlers.js";
 import  {validCreate }  from "../middlewares/autorization.middleware.js";
 import express from 'express';
 

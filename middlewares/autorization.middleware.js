@@ -1,21 +1,6 @@
+import { paramSchema, paramSchema1, paramSchema2  } from "../schema/schema.js";
 import  { stripHtml }  from  "string-strip-html" ;
 import  { strict as assert }  from  "assert" ;
-import joi from 'joi';
-
-const paramSchema =  joi.object({
-    name: joi.string().min(1).required(),
-    email:joi.string().email().min(5).required(), 
-    password:joi.string().min(4).required(),
-})
-
-const paramSchema1 =  joi.object({
-    email:joi.string().email().min(5).required(), 
-    password:joi.string().min(4).required(),
-})
-
-const paramSchema2 =  joi.object({
-    authorization:joi.string().required(),
-})
 
 
 function aux(req, res, next, opt ){
@@ -72,6 +57,5 @@ export function validSignin(req, res , next){
 }
 
 export function validExtract(req, res, next){
-    console.log(req.headers.authorization)
     return aux(req, res, next , 2);
 }

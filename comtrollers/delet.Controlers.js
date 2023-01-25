@@ -9,6 +9,7 @@ export async function deleteExtract(req, res){
        const i = await db.collection('MyExtracts').deleteOne({_id: new ObjectId(token)});
         
        return res.send(i).status(200);
+       
     }catch(error){
        return res.sendStatus(404);
     }
