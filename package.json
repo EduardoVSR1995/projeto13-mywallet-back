@@ -21,7 +21,6 @@
     "string-strip-html": "^11.6.2",
     "uuid": "^9.0.0",
     "assert": "2.0.0"
-
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
