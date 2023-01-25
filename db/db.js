@@ -12,6 +12,7 @@ export default async function mongodb(){
     try {
         db = await mongoClient.db('MyWallet');
         return db;
+
     } catch (error) {
         return error;        
     }
